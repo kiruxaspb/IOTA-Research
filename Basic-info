@@ -3,5 +3,5 @@ generate passwd hashes —> hornet tools pwd-hash
 input hash & calt passwod in config files in /var/lib/hornet -> config.json
 
 IOTA1 — admin/qwerty123
-IOTA2 — admin2/qwerty123
+IOTA2 — admin/admin
 IOTA3 — admin/qwerty123
