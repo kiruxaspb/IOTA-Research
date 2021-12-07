@@ -5,3 +5,6 @@ input hash & calt passwod in config files in /var/lib/hornet -> config.json
 IOTA1 — admin/qwerty123
 IOTA2 — admin/admin
 IOTA3 — admin/qwerty123
+
+https://wiki.iota.org/wasp/guide/chains_and_nodes/running-a-node#running-the-node
+
