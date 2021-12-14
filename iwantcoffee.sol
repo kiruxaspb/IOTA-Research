@@ -1,6 +1,5 @@
 pragma solidity ^0.8.9;      
 
-//примера массива адрессов в аргументе: ["0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db"]
 
 contract IOTA {
     address private admin;
@@ -43,3 +42,5 @@ contract IOTA {
     }
 
 }
+
+//пример массива адрессов в аргументе: ["0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db"]
