@@ -24,8 +24,8 @@ contract IOTA {
         _; 
     } 
 
-
-    function purchase(uint8 day, uint8 kind) public onlyMachine() {
+    //основные функции: покупка и очистка массива
+    function purchase(uint8 day, uint8 kind) onlyMachine() public {
         cof[day][kind] += 1;
     }
 
@@ -33,7 +33,7 @@ contract IOTA {
         delete cof;
     }
 
-
+    //геттеры
     function getByDay(uint8 day) public view returns (uint256,uint256,uint256,uint256,uint256) {
         return(cof[day][0], cof[day][1], cof[day][2], cof[day][3], cof[day][4]);
     }
