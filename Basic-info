@@ -8,3 +8,39 @@ IOTA3 — admin/qwerty123
 
 https://wiki.iota.org/wasp/guide/chains_and_nodes/running-a-node#running-the-node
 
+
+
+
+instruction:
+
+git clone -b develop https://github.com/iotaledger/wasp.git
+cd wasp
+make install
+sudo docker build -t wasp-node .
+---------
+cd /tools/devnet
+sudo docker-compose up
+---------------
+cd /wasp
+wasp-cli init
+
+wasp-cli set goshimmer.api 127.0.0.1:8080
+
+wasp-cli set wasp.0.api 127.0.0.1:9090
+wasp-cli set wasp.0.nanomsg 127.0.0.1:5550
+wasp-cli set wasp.0.peering 127.0.0.1:4000
+
+-----------------
+
+wasp-cli peering info
+wasp-cli peering list-trusted
+wasp-cli peering trust *pubkey* 127.0.0.1:4000
+wasp-cli peering list-trusted
+
+
+wasp-cli request-funds
+
+wasp-cli chain deploy --committee=0 --quorum=1 --chain=mychain --description="My chain"
+
+asp-cli chain evm deploy -a mychain --alloc YOURWALLET:1000000000000000000000000
+
