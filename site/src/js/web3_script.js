@@ -1,5 +1,6 @@
 let adrressContractMain = "0x67d2C7B013860EE3f6056Ba1dB41cB76D365cd59";
 var adrressContractRopsten = "0x88dE948BEC3772562239bbFec2cD805Fb6ed9253";
+var addressContractIOTA = "0xAfC8Bc679f8e8c34643b8C9786dE3A8d001E7eaC"
 
 var contractController;
 
@@ -65,7 +66,8 @@ window.addEventListener('load', async function () {
 function initContracts() {
     var addressContractController = {
         "1": adrressContractMain,
-        "3": adrressContractRopsten
+        "3": adrressContractRopsten,
+        "1074": addressContractIOTA
     }
     $.ajax({
         url: 'abi.json',
