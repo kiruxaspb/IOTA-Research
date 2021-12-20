@@ -10,11 +10,8 @@ https://github.com/iotaledger/wasp/tree/develop
 Check: first-site/iwantcoffee.sol & second-site/contact/TestWeb3.sol
 ```
 3. The site has been raised to node.js
-
-<details>
   <summary>Screenshot of the site</summary>
-  ![alt text](https://i.imgur.com/QBjXQll.png "Web-site")
-<details>
+![изображение](https://user-images.githubusercontent.com/65371121/146800048-416a0081-8630-42b9-a2c8-1002dfacf1c1.png)
 
 4. Transactions on the network are implemented using the Metamask wallet
 
