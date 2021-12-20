@@ -1,7 +1,20 @@
-# iota-party
-
+#iota-blockchain-project
 <hr>
-Настя</br> <strong><em>врывается</em></strong> в пати </br></br></br>
 
-![PROSTIESLItrhnl](https://user-images.githubusercontent.com/69202673/146013887-236cd264-b188-43c1-b3aa-9c4a36e5121b.png)
+1. Deployed EVM based on the test version of the IOTA network (wasp+goshimmer)
+```
+https://github.com/iotaledger/wasp/tree/develop
+```
+2. A smart-contract on Solidity has been developed to implement a website for buying coffee.
+```
+Check: first-site/iwantcoffee.sol & second-site/contact/TestWeb3.sol
+```
+3. The site has been raised to node.js
+
+<details>
+  <summary>Screenshot of the site</summary>
+  ![alt text](https://i.imgur.com/QBjXQll.png)
+</details>
+
+4. Transactions on the network are implemented using the Metamask wallet
 
