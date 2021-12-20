@@ -13,8 +13,8 @@ Check: first-site/iwantcoffee.sol & second-site/contact/TestWeb3.sol
 
 <details>
   <summary>Screenshot of the site</summary>
-  ![alt text](https://i.imgur.com/QBjXQll.png)
-</details>
+  ![alt text](https://i.imgur.com/QBjXQll.png "Web-site")
+<details>
 
 4. Transactions on the network are implemented using the Metamask wallet
 
