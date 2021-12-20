@@ -9,5 +9,7 @@ https://github.com/iotaledger/wasp/tree/develop
 ```
 Check: first-site/iwantcoffee.sol & second-site/contact/TestWeb3.sol
 ```
-3. Transactions on the network are implemented using the Metamask wallet
+3. The site has been raised to node.js
+
+4. Transactions on the network are implemented using the Metamask wallet
 
