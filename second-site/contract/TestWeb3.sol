@@ -16,7 +16,7 @@ contract TestWeb3 {
         User storage user = users[_wallet];
         user.day = _day;
         user.coffee = _coffee;
-        cof[_day][_coffee]+=1;
+        cof[_coffee][_day]+=1;
     }
     
     function getUser(address _wallet) view external returns(uint256 _day, uint256 _coffee, uint256[7][5] memory _allcoffee) {
@@ -24,5 +24,9 @@ contract TestWeb3 {
         _day = user.day;
         _coffee = user.coffee;
         _allcoffee=cof;
+    }
+
+    function clearArray() external {
+        delete cof;
     }
 }

@@ -1,8 +1,11 @@
 let adrressContractMain = "0x67d2C7B013860EE3f6056Ba1dB41cB76D365cd59";
-var adrressContractRopsten = "0x0D758ea6B36C64a82Ea253bd87493C333FBC0218";
+var adrressContractRopsten = "0x685B21eFb3992fb11ed84EFD588385Ec4594c01f";
 var addressContractIOTA = "0xAfC8Bc679f8e8c34643b8C9786dE3A8d001E7eaC";
 
 var contractController;
+var day=["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"];
+var coffee = ["Эспрессо","Американо","Каппучино","Латте","Раф"];
+var contract_allcoffee;
 
 function save() {
     var addWallet = $('#addWallet').val();
@@ -24,9 +27,7 @@ function readUser() {
         console.log("data", data);
         var contract_day = Number(data._day)
         var contract_coffee = Number(data._coffee)
-        var contract_allcoffee = Array(data._allcoffee);
-        let day=["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"];
-        let coffee = ["Эспрессо","Американо","Каппучино","Латте","Раф"];
+        contract_allcoffee = data._allcoffee;
         console.log("data._day", contract_day);
         console.log("data._coffee", contract_coffee);
         console.log("data._allcoffee", contract_allcoffee);
@@ -35,7 +36,7 @@ function readUser() {
         $('#showCoffee').html(contract_coffee);
         $('#targetDay').html(day[contract_day]);
         $('#targetCoffee').html(coffee[contract_coffee]);
-        $('#getallcoffee').html(contract_allcoffee)
+        generate_table();
     }).catch(function (error) {
         alert(error.message);
     });
@@ -51,6 +52,15 @@ function startApp() {
     $('#showResult').hide();
     $('#debug').hide();
 }
+
+function cleararr(){
+    contractController.clearArray().then((err, data) => {
+
+    }).catch(function (error) {
+        alert(error.message);
+    });
+}
+  
 
 window.addEventListener('load', async function () {
     window.ethereum.enable().then(provider = new ethers.providers.Web3Provider(window.ethereum));
@@ -83,3 +93,62 @@ function initContracts() {
         }
     });
 }
+
+////////////////TABLE////////////////
+function generate_table() {
+    let day=["Таблица","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"];
+    // get the reference for the body
+    var body = document.getElementById("tablearr");
+    // creates a <table> element and a <tbody> element
+    var tbl = document.createElement("table");
+    var tblBody = document.createElement("tbody");
+    console.log(body.childNodes);
+    if(body.hasChildNodes()==true){
+        body.removeChild( body.childNodes[0] );
+    }
+  
+    // creating all cells
+      // creates a table row
+      var row = document.createElement("tr");
+  
+      for (var j = 0; j < 8; j++) {
+        // Create a <td> element and a text node, make the text
+        // node the contents of the <td>, and put the <td> at
+        // the end of the table row
+        var cell = document.createElement("td");
+        var cellText = document.createTextNode(day[j]);
+        cell.appendChild(cellText);
+        row.appendChild(cell);
+      }
+  
+      // add the row to the end of the table body
+      tblBody.appendChild(row);
+
+    for (var i = 0; i < 5; i++) {
+        // creates a table row
+        var row = document.createElement("tr");
+        var cell = document.createElement("td");
+        var cellText = document.createTextNode(coffee[i]);
+        cell.appendChild(cellText);
+        row.appendChild(cell);
+        for (var j = 0; j < 7; j++) {
+          // Create a <td> element and a text node, make the text
+          // node the contents of the <td>, and put the <td> at
+          // the end of the table row
+          var cell = document.createElement("td");
+          var cellText = document.createTextNode(contract_allcoffee[i][j]);
+          cell.appendChild(cellText);
+          row.appendChild(cell);
+        }
+    
+        // add the row to the end of the table body
+        tblBody.appendChild(row);
+      }
+  
+    // put the <tbody> in the <table>
+    tbl.appendChild(tblBody);
+    // appends <table> into <body>
+    body.append(tbl);
+    // sets the border attribute of tbl to 2;
+    tbl.setAttribute("border", "2");
+  }
