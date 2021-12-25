@@ -4,7 +4,7 @@ pragma solidity ^0.8.7;
 
 
 contract TestWeb3 {
-    
+    uint256[7][5] public cof;
     struct User {
         uint256 day;
         uint256 coffee;
@@ -16,11 +16,13 @@ contract TestWeb3 {
         User storage user = users[_wallet];
         user.day = _day;
         user.coffee = _coffee;
+        cof[_day][_coffee]+=1;
     }
     
-    function getUser(address _wallet) view external returns(uint256 _day, uint256 _coffee) {
+    function getUser(address _wallet) view external returns(uint256 _day, uint256 _coffee, uint256[7][5] memory _allcoffee) {
         User memory user = users[_wallet];
         _day = user.day;
         _coffee = user.coffee;
+        _allcoffee=cof;
     }
 }

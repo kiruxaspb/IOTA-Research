@@ -1,5 +1,5 @@
 let adrressContractMain = "0x67d2C7B013860EE3f6056Ba1dB41cB76D365cd59";
-var adrressContractRopsten = "0x88dE948BEC3772562239bbFec2cD805Fb6ed9253";
+var adrressContractRopsten = "0x0D758ea6B36C64a82Ea253bd87493C333FBC0218";
 var addressContractIOTA = "0xAfC8Bc679f8e8c34643b8C9786dE3A8d001E7eaC";
 
 var contractController;
@@ -24,15 +24,18 @@ function readUser() {
         console.log("data", data);
         var contract_day = Number(data._day)
         var contract_coffee = Number(data._coffee)
+        var contract_allcoffee = Array(data._allcoffee);
         let day=["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"];
         let coffee = ["Эспрессо","Американо","Каппучино","Латте","Раф"];
-        console.log("data._day", day);
-        console.log("data._coffee", coffee);
+        console.log("data._day", contract_day);
+        console.log("data._coffee", contract_coffee);
+        console.log("data._allcoffee", contract_allcoffee);
         $('#showResult').show();
-        $('#targetDay').html(day[contract_day]);
-        $('#targetCoffee').html(coffee[contract_coffee]);
         $('#showDay').html(contract_day);
         $('#showCoffee').html(contract_coffee);
+        $('#targetDay').html(day[contract_day]);
+        $('#targetCoffee').html(coffee[contract_coffee]);
+        $('#getallcoffee').html(contract_allcoffee)
     }).catch(function (error) {
         alert(error.message);
     });
