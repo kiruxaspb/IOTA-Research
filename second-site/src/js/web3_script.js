@@ -1,5 +1,5 @@
 let adrressContractMain = "0x67d2C7B013860EE3f6056Ba1dB41cB76D365cd59";
-var adrressContractRopsten = "0x685B21eFb3992fb11ed84EFD588385Ec4594c01f";
+var adrressContractRopsten = "0xd3C96A4588AE35D72e06d2E46071b274F4af14f9";
 var addressContractIOTA = "0xAfC8Bc679f8e8c34643b8C9786dE3A8d001E7eaC";
 
 var contractController;
@@ -14,7 +14,7 @@ function save() {
     console.log("addDay", addDay);
     console.log("addCoffee", addCoffee);
     contractController.setUser(addWallet, addDay, addCoffee).then((err, data) => {
-
+        console.log("data", data);
     }).catch(function (error) {
         alert(error.message);
     });
@@ -53,9 +53,29 @@ function startApp() {
     $('#debug').hide();
 }
 
-function cleararr(){
-    contractController.clearArray().then((err, data) => {
+function clearusertable(){
+    var readWallet = $('#readWallet').val();
+    contractController.clearUserTable(readWallet).then((data) => {
+        console.log("data", data);
+    }).catch(function (error) {
+        alert(error.message);
+    });
+}
 
+function clearalltable(){
+    contractController.clearAllTable().then((data) => {
+        console.log("data", data);
+    }).catch(function (error) {
+        alert(error.message);
+    });
+}
+
+function getalltable(){
+    contractController.getAllTable().then((data) => {
+        console.log("data", data);
+        contract_allcoffee = data;
+        console.log("contract_allcoffee", contract_allcoffee);
+        generate_table();
     }).catch(function (error) {
         alert(error.message);
     });
