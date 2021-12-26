@@ -44,3 +44,4 @@ wasp-cli chain deploy --committee=0 --quorum=1 --chain=mychain --description="My
 
 asp-cli chain evm deploy -a mychain --alloc YOURWALLET:1000000000000000000000000
 
+wasp-cli chain evm jsonrpc --chainid 1074
