@@ -1,26 +1,13 @@
-generate passwd hashes —> hornet tools pwd-hash
 
-input hash & calt passwod in config files in /var/lib/hornet -> config.json
-
-IOTA1 — admin/qwerty123
-IOTA2 — admin/admin
-IOTA3 — admin/qwerty123
-
-https://wiki.iota.org/wasp/guide/chains_and_nodes/running-a-node#running-the-node
-
-
-
-
-instruction:
-
+Configuring Nodes:
 git clone -b develop https://github.com/iotaledger/wasp.git
 cd wasp
 make install
 sudo docker build -t wasp-node .
----------
+
 cd /tools/devnet
 sudo docker-compose up
----------------
+
 cd /wasp
 wasp-cli init
 
@@ -30,17 +17,15 @@ wasp-cli set wasp.0.api 127.0.0.1:9090
 wasp-cli set wasp.0.nanomsg 127.0.0.1:5550
 wasp-cli set wasp.0.peering 127.0.0.1:4000
 
------------------
-
 wasp-cli peering info
 wasp-cli peering list-trusted
-wasp-cli peering trust *pubkey* 127.0.0.1:4000
+wasp-cli peering trust *pubkey* 127.0.0.1:4000 // *pubkey* from $wasp-cli peering info
 wasp-cli peering list-trusted
 
-
+Chain setup:
 wasp-cli request-funds
-
 wasp-cli chain deploy --committee=0 --quorum=1 --chain=mychain --description="My chain"
 
-asp-cli chain evm deploy -a mychain --alloc YOURWALLET:1000000000000000000000000
+Setting EVM:
+asp-cli chain evm deploy -a mychain --alloc YOURWALLET_ADDR:1000000000000000000000000
 

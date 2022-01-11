@@ -77,7 +77,11 @@
     </div>
     <br>
     <div class="form-group">
-        <button class="readUser" onclick="readUser()">read data</button>
+        <button class="readUser" onclick="readUser()">read user data</button>
+    </div>
+    <br>
+    <div>
+      <button class="getalltable" onclick="getalltable()">show summary table</button>
     </div>
     <br>
     <div id="showResult" >
@@ -87,6 +91,12 @@
         <div>
             <span>target coffee: </span> <span id="targetCoffee"></span>
         </div>
+    </div>
+    <div class="form-group">
+      <button class="clearusertable" onclick="clearusertable()">clear user table</button>
+      <button class="clearalltable" onclick="clearalltable()">clear summary table</button>
+  </div>
+    <div id="tablearr">
     </div>
 </div>
   
@@ -104,11 +114,10 @@
                 <li >Миронов Кирилл</li>
                 <li >Огорельцев Павел</li>
             </ul>
-           
+            <body id="body">
+            </body>
           </div>
         </footer>
-    <body>
-    </body>
     </figure>
     <script charset="utf-8"
         src="https://cdn.ethers.io/scripts/ethers-v4.min.js"
