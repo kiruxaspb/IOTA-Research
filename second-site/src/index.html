@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>IOTAaaaa</title>
+        <title>IOTA</title>
         <link rel="stylesheet" href="css/styles.css">
         <link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/45a7f34b95.js" crossorigin="anonymous"></script>
@@ -13,7 +13,7 @@
 
 <figure>
 
-  <section class="py-5 text-center container">
+  <section class="header text-center">
         <h1 class="fw-light" style="font-family: var(--bs-font-sans-serif);">Взаимодействие со смарт-контрактом</h1>
         <h2>в сети IOTA</h2>
         <span>Your Address: </span> <span id="wallet"></span>
@@ -21,17 +21,17 @@
   </section>
 
 <main>
-  <div class="py-5 bg-light">
+  <div class="py-5" style="background-color: #f3ffbd">
     <div class="container">
       <div class="form-group">
-        <label for="addWallet">add wallet:</label>
-        <input type="text" class="form-control" id="addWallet">
+        <label for="addWallet" style="margin-left: 77px;">Input your wallet address:</label>
+        <input type="text" class="form-control" id="addWallet" style="width: 350px; border-radius: 12px;">
     </div>
     <br>
-         <p><mark>Покупка кофе</mark> <br>
+         <p><mark>Покупка кофе</mark><br>
     Выберите день недели и вид кофе</p>
     <form>
-      <select id="addDay">
+      <select id="addDay" class="addday">
        <option value="0">Понедельник</option>
        <option value="1">Вторник</option>
        <option value="2">Среда</option>
@@ -43,7 +43,7 @@
      </form> 
      <br>
   <form>
-    <select id="addCoffee">
+    <select id="addCoffee" class="addcoffee">
      <option value="0">Эспрессо</option>
      <option value="1">Американо</option>
      <option value="2">Каппучино</option>
@@ -52,36 +52,36 @@
     </select>
    </form> 
 <br>
-   <div id="debug" style="width: 50%; height: 50%; border:1px solid;">
+   <div id="debug" style="width: 50%; height: 50%; border:1px solid; padding: 10px; border-radius: 12px;">
       <div class="form-group">
         <label for="addDay">add day:</label>
-        <input type="text" class="form-control" id="selDay">
+        <input type="text" class="form-control" id="selDay" style="border-radius: 12px; width: 370px;">
     </div>
     <div class="form-group">
       <label for="addCoffee">add coffee:</label>
-      <input type="text" class="form-control" id="selCoffee">
+      <input type="text" class="form-control" id="selCoffee" style="border-radius: 12px; width: 370px;">
   </div>
     <p>show day: </span> <span id="showDay"></p>
     <p>show coffee: </span> <span id="showCoffee"></p>
-      <button class="show_values" onclick="show()">show values</button>
+      <button class="show_values" onclick="show()">Show values</button>
       <br>
   </div>
 <br>
     <div class="form-group">
-      <button class="save" onclick="save()">save to blockchain</button>
+      <button class="save" onclick="save()">Купить</button>
   </div>
   <br>
     <div class="form-group">
-        <label for="readWallet">Input wallet:</label>
-        <input type="text" class="form-control" id="readWallet">
+        <label for="readWallet" style="margin-left: 77px;">Input wallet for read data:</label>
+        <input type="text" class="form-control" id="readWallet" style="border-radius: 12px; width: 370px;">
     </div>
     <br>
     <div class="form-group">
-        <button class="readUser" onclick="readUser()">read user data</button>
+        <button class="readUser" onclick="readUser()">Read user data</button>
     </div>
     <br>
     <div>
-      <button class="getalltable" onclick="getalltable()">show summary table</button>
+      <button class="getalltable" onclick="getalltable()">Show summary table</button>
     </div>
     <br>
     <div id="showResult" >
@@ -93,8 +93,8 @@
         </div>
     </div>
     <div class="form-group">
-      <button class="clearusertable" onclick="clearusertable()">clear user table</button>
-      <button class="clearalltable" onclick="clearalltable()">clear summary table</button>
+      <button class="clearusertable" onclick="clearusertable()">Clear user table</button>
+      <button class="clearalltable" onclick="clearalltable()">Clear summary table</button>
   </div>
     <div id="tablearr">
     </div>
@@ -103,11 +103,10 @@
 
 
 </form> 
-</div></div>
+<!--</div></div>-->
 </main>
-        <footer class="text-muted py-5" style = "position:relative; text-align:right;">
+        <footer class="text-muted py-5" style = "position:relative; text-align:right; margin: 0; background-color: rgb(97, 143, 127);">
           <div class="container" >
-            
               <a style = "padding-right: 174px;"> Студенты СПБГУТ:</a><br><ul style="float: right;">
                 <li >Дворецков Кирилл</li>
                 <li >Мартынюк Анастасия</li>

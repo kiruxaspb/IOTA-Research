@@ -1,3 +1,129 @@
 .debug{
     display: none;
 }
+
+.addday {
+    width: 350px;
+    border-radius: 12px;
+    width: 250px;
+    height: 35px;
+    text-align: center;
+    border: 1px solid black;
+    background-color: white;
+    cursor: pointer;
+}
+
+.addcoffee {
+    width: 350px;
+    border-radius: 12px;
+    width: 250px;
+    height: 35px;
+    text-align: center;
+    border: 1px solid black;
+    background-color: white;
+    cursor: pointer;
+}
+
+.save {
+    font-family: Consolas;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid #4CAF50;
+    width: 150px;
+    height: 40px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.save:hover {
+    background: #4CAF50;
+    color: rgb(255, 255, 255);
+}
+
+.header {
+    background-color: rgb(97, 143, 127);
+    margin-bottom: 0;
+    padding: 10px;
+}
+
+.text-muted {
+     padding: 0;
+}
+
+.container {
+    color: black;
+}
+
+main {
+    background-color: yellow;
+}
+
+.show_values {
+    font-family: Consolas;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #ff4f22;
+    width: 150px;
+    height: 40px;
+    background-color: white;
+}
+.show_values:hover {
+    background: #ff4f22;
+    color: rgb(255, 255, 255);
+}
+
+.readUser {
+    font-family: Consolas;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #ff4f22;
+    width: 170px;
+    height: 40px;
+    background-color: white;
+}
+.readUser:hover {
+    background: #ff4f22;
+    color: rgb(255, 255, 255);
+}
+
+.getalltable {
+    font-family: Consolas;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #ff4f22;
+    width: 170px;
+    height: 40px;
+    background-color: white;
+}
+.getalltable:hover {
+    background: #ff4f22;
+    color: rgb(255, 255, 255);
+}
+
+.clearusertable {
+    font-family: Consolas;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #ff4f22;
+    width: 170px;
+    height: 40px;
+    background-color: white;
+}
+.clearusertable:hover {
+    background: #ff4f22;
+    color: rgb(255, 255, 255);
+}
+
+.clearalltable {
+    font-family: Consolas;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #ff4f22;
+    width: 180px;
+    height: 40px;
+    background-color: white;
+}
+.clearalltable:hover {
+    background: #ff4f22;
+    color: rgb(255, 255, 255);
+}
