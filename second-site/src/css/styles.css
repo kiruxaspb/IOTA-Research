@@ -2,6 +2,10 @@
     display: none;
 }
 
+html {
+    background-color: rgb(97, 143, 127)
+}
+
 .addday {
     width: 350px;
     border-radius: 12px;
