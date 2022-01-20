@@ -17,4 +17,4 @@ wasp-cli request-funds
 wasp-cli chain deploy --committee=0 --quorum=1 --chain=mychain --description="IOTACHAIN"
 echo "input your wallet:"
 read wallet
-asp-cli chain evm deploy -a mychain --alloc $wallet:1000000000000000000000000
+wasp-cli chain evm deploy -a mychain --alloc $wallet:1000000000000000000000000
