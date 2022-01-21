@@ -18,3 +18,5 @@ wasp-cli chain deploy --committee=0 --quorum=1 --chain=mychain --description="IO
 echo "input your wallet:"
 read wallet
 wasp-cli chain evm deploy -a mychain --alloc $wallet:1000000000000000000000000
+sleep 5
+wasp-cli chain evm jsonrpc --chainid 1074
