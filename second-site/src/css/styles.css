@@ -1,3 +1,75 @@
-.debug{
-    display: none;
+.save {
+    font-family: Consolas;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid #4CAF50;
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.save:hover {
+    background: #4CAF50;
+    color: rgb(255, 255, 255);
+}
+
+.readUser {
+    font-family: Consolas;
+    border-radius: 12px;
+    font-size: 12px;
+    text-align: center;
+    border: 1px solid #ff4f22;
+    width: 170px;
+    height: 40px;
+    background-color: white;
+}
+.readUser:hover {
+    background: #ff4f22;
+    color: rgb(255, 255, 255);
+}
+
+.getalltable {
+    font-family: Consolas;
+    border-radius: 12px;
+    font-size: 12px;
+    text-align: center;
+    border: 1px solid #ff4f22;
+    width: 170px;
+    height: 40px;
+    background-color: white;
+}
+.getalltable:hover {
+    background: #ff4f22;
+    color: rgb(255, 255, 255);
+}
+
+.clearusertable {
+    font-family: Consolas;
+    border-radius: 12px;
+    font-size: 12px;
+    text-align: center;
+    border: 1px solid #ff4f22;
+    width: 170px;
+    height: 40px;
+    background-color: white;
+}
+.clearusertable:hover {
+    background: #ff4f22;
+    color: rgb(255, 255, 255);
+}
+
+.clearalltable {
+    font-family: Consolas;
+    border-radius: 12px;
+    font-size: 12px;
+    text-align: center;
+    border: 1px solid #ff4f22;
+    width: 180px;
+    height: 40px;
+    background-color: white;
+}
+.clearalltable:hover {
+    background: #ff4f22;
+    color: rgb(255, 255, 255);
 }

@@ -27,8 +27,8 @@
         <input type="text" class="form-control" id="addWallet" style="width: 400px; border-radius: 12px;">
     </div>
     <br>
-         <p><mark>Покупка кофе</mark><br>
-    Выберите день недели и вид кофе</p>
+         <p><mark>Аренда помещения</mark><br>
+    Выберите день недели и помещение для бронирования места</p>
     <form>
       <select id="addDay">
        <option value="0">Понедельник</option>
@@ -43,11 +43,11 @@
      <br>
   <form>
     <select id="addCoffee">
-     <option value="0">Эспрессо</option>
-     <option value="1">Американо</option>
-     <option value="2">Каппучино</option>
-     <option value="3">Латте</option>
-     <option value="4">Раф</option>
+     <option value="0">Общее помещение</option>
+     <option value="1">Выделенный офис</option>
+     <option value="2">Открытая терасса</option>
+     <option value="3">Переговорная комната</option>
+     <option value="4">Комната с шумоизоляцией</option>
     </select>
    </form> 
 <br>
@@ -76,13 +76,15 @@
             <span>Последний выбранный день: </span> <span id="targetDay"></span>
         </div>
         <div>
-            <span>Последнее выбранное кофе: </span> <span id="targetCoffee"></span>
+            <span>Последнее выбранное помещение: </span> <span id="targetCoffee"></span>
         </div>
     </div>
     <div class="form-group">
       <button class="clearusertable" onclick="clearusertable()">Очистить данные для пользователя</button>
+      <br><br>
       <button class="clearalltable" onclick="clearalltable()">Очистить общие данные</button>
   </div>
+  <br>
     <div id="tablearr">
     </div>
     </div>
