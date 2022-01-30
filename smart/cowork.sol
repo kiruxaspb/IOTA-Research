@@ -1,8 +1,9 @@
 pragma solidity ^0.8.11;
-
+https://ropsten.etherscan.io/address/0x0507f46Dd0862288DE6A3aA45AE9ECDf12FdC7eE#code
 
 contract Rent {
     address payable public admin;
+    address payable public admin2;
     uint256[7][5] private allReserved;
 
     struct Client {
@@ -17,7 +18,8 @@ contract Rent {
     }
 
     modifier onlyAdmin() {
-        require(msg.sender == admin);
+        require(msg.sender == admin ||
+        (msg.sender == admin2 && admin2 != address(0)));
         _;
     }
     
@@ -44,6 +46,10 @@ contract Rent {
     
     function getAllTable() public view returns(uint256[7][5] memory){
         return allReserved;
+    }
+
+    function setAdmin2(address _admin) external onlyAdmin {
+        admin2 = payable(_admin);
     }
     
     // бронь платна, поэтому нужна функция вывода средств с контракта
