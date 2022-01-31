@@ -1,19 +1,25 @@
 let adrressContractMain = "0x67d2C7B013860EE3f6056Ba1dB41cB76D365cd59";
-var adrressContractRopsten = "0xd3C96A4588AE35D72e06d2E46071b274F4af14f9";
+//var adrressContractRopsten = "0xd3C96A4588AE35D72e06d2E46071b274F4af14f9";    //old old contract
+var adrressContractRopsten = "0x6fE30E8147C97Ff4303F513F607403425C0C2e45";
 var addressContractIOTA = "0xAfC8Bc679f8e8c34643b8C9786dE3A8d001E7eaC";
 
 var contractController;
 var day=["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"];
-var coffee = ["Эспрессо","Американо","Каппучино","Латте","Раф"];
-var contract_allcoffee;
+var room = ["Общее помещение","Выделенный офис","Открытая терасса","Переговорная комната","Комната с шумоизоляцией"];
+var contract_allroom;
+var wallet, signer, current_network;
 
 function save() {
-    var addWallet = $('#addWallet').val();
+    var readWallet = $('#readWallet').val();
+    if (readWallet == "") readWallet=wallet;
+    if(!ethers.utils.isAddress(readWallet)) {
+       return alert("invalid address");
+    }
     var addDay = $('#addDay').val();
-    var addCoffee = $('#addCoffee').val();
+    var addRoom = $('#addRoom').val();
     console.log("addDay", addDay);
-    console.log("addCoffee", addCoffee);
-    contractController.setUser(addWallet, addDay, addCoffee).then((err, data) => {
+    console.log("addRoom", addRoom);
+    contractController.addReservation(addDay, addRoom,wallet, { value: ethers.utils.parseEther("0.0001") }).then((err, data) => {
         console.log("data", data);
     }).catch(function (error) {
         alert(error.message);
@@ -22,40 +28,43 @@ function save() {
 
 function readUser() {
     var readWallet = $('#readWallet').val();
+    if (readWallet == "") readWallet=wallet;
+    if(!ethers.utils.isAddress(readWallet)) {
+       return alert("invalid address");
+    }
     $('#showResult').hide();
-    contractController.getUser(readWallet).then((data) => {
+    contractController.getClientReservations(readWallet).then((data) => {
         console.log("data", data);
         var contract_day = Number(data._day)
-        var contract_coffee = Number(data._coffee)
-        contract_allcoffee = data._allcoffee;
+        var contract_room = Number(data._room)
+        contract_allroom = data._allroom;
         console.log("data._day", contract_day);
-        console.log("data._coffee", contract_coffee);
-        console.log("data._allcoffee", contract_allcoffee);
+        console.log("data._room", contract_room);
+        console.log("data._allroom", contract_allroom);
         $('#showResult').show();
         $('#showDay').html(contract_day);
-        $('#showCoffee').html(contract_coffee);
+        $('#showRoom').html(contract_room);
         $('#targetDay').html(day[contract_day]);
-        $('#targetCoffee').html(coffee[contract_coffee]);
+        $('#targetRoom').html(room[contract_room]);
         generate_table();
     }).catch(function (error) {
         alert(error.message);
     });
 }
-function show(){
-    let showday = $('#addDay').val();
-    let showcoffee = $('#addCoffee').val();
-        $('#showDay').html(showday);
-        $('#showCoffee').html(showcoffee);
-}
 
 function startApp() {
     $('#showResult').hide();
-    $('#debug').hide();
+    console.log("wallet", wallet);
+    $('#wallet').html(wallet);
 }
 
 function clearusertable(){
     var readWallet = $('#readWallet').val();
-    contractController.clearUserTable(readWallet).then((data) => {
+    if (readWallet == "") readWallet=wallet;
+    if(!ethers.utils.isAddress(readWallet)) {
+       return alert("invalid address");
+    }
+    contractController.resetClientInfo(readWallet).then((data) => {
         console.log("data", data);
     }).catch(function (error) {
         alert(error.message);
@@ -63,7 +72,7 @@ function clearusertable(){
 }
 
 function clearalltable(){
-    contractController.clearAllTable().then((data) => {
+    contractController.resetAll().then((data) => {
         console.log("data", data);
     }).catch(function (error) {
         alert(error.message);
@@ -73,9 +82,27 @@ function clearalltable(){
 function getalltable(){
     contractController.getAllTable().then((data) => {
         console.log("data", data);
-        contract_allcoffee = data;
-        console.log("contract_allcoffee", contract_allcoffee);
+        contract_allroom = data;
+        console.log("room", contract_allroom);
         generate_table();
+    }).catch(function (error) {
+        alert(error.message);
+    });
+}
+
+function withdraw(){
+    contractController.withdraw().then((data) => {
+        console.log("data",data);
+    }).catch(function (error) {
+        alert(error.message);
+    });
+}
+function getbalance(){
+    contractController.getBalance().then((data) => {
+        console.log("data",data);
+        balance=data.toNumber();
+        $('#balance').html(balance);
+        console.log("balance",balance);
     }).catch(function (error) {
         alert(error.message);
     });
@@ -90,8 +117,6 @@ window.addEventListener('load', async function () {
 
     const accounts = await ethereum.request({ method: 'eth_accounts' });
     wallet = accounts[0];
-    console.log("wallet", wallet);
-    $('#wallet').html(wallet);
 
     initContracts();
 })
@@ -148,7 +173,7 @@ function generate_table() {
         // creates a table row
         var row = document.createElement("tr");
         var cell = document.createElement("td");
-        var cellText = document.createTextNode(coffee[i]);
+        var cellText = document.createTextNode(room[i]);
         cell.appendChild(cellText);
         row.appendChild(cell);
         for (var j = 0; j < 7; j++) {
@@ -156,7 +181,7 @@ function generate_table() {
           // node the contents of the <td>, and put the <td> at
           // the end of the table row
           var cell = document.createElement("td");
-          var cellText = document.createTextNode(contract_allcoffee[i][j]);
+          var cellText = document.createTextNode(contract_allroom[i][j]);
           cell.appendChild(cellText);
           row.appendChild(cell);
         }
