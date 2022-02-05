@@ -1,134 +1,99 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>IOTAaaaa</title>
-        <link rel="stylesheet" href="css/styles.css">
-        <link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <script src="https://kit.fontawesome.com/45a7f34b95.js" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/45a7f34b95.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <link type="image/x-icon" rel="shortcut icon" href="css/favicon.ico">
+    <title>Cowork</title>
+</head>
+<body>
+    <!-- Заголовок -->
+    <div class="header">
+        <h1>SPBGUT COWORK</h1>
+        <h2>Взаимодействие со смарт-контрактом в сети IOTA</h1>
+        <span>Адрес вашего кошелька: </span> <span id="wallet"></span>
+    </div>
 
-<figure>
+    <!-- Основная часть -->
+    <div class="main">
+        <div class="reservation-block">
+            <label for="addWallet" class="useraddress">Введите адрес кошелька для бронирования:</label><br>
+            <input type="text" class="input-user-wallet" id="addWallet">
 
-  <section class="py-5 text-center container">
-        <h1 class="fw-light" style="font-family: var(--bs-font-sans-serif);">Взаимодействие со смарт-контрактом</h1>
-        <h2>в сети IOTA</h2>
-        <span>Your Address: </span> <span id="wallet"></span>
-          <p><input type="checkbox" id="debug_checkbox" name="show_debug">toogle debug</p>
-  </section>
+            <p class="info"><mark>Аренда рабочего места, помещения</mark><br>Выберите день недели и помещение для бронирования места:</p>
+            <form>
+                <select id="addDay" class="dayselector">
+                    <option value="0">Понедельник</option>
+                    <option value="1">Вторник</option>
+                    <option value="2">Среда</option>
+                    <option value="3">Четверг</option>
+                    <option value="4">Пятница</option>
+                    <option value="5">Суббота</option>
+                    <option value="6">Воскресенье</option>
+                </select>
+            </form> 
+            <br>
+            <form>
+                <select id="addRoom" class="placeselector">
+                    <option value="0">Общее помещение</option>
+                    <option value="1">Выделенный офис</option>
+                    <option value="2">Открытая терасса</option>
+                    <option value="3">Переговорная комната</option>
+                    <option value="4">Комната с шумоизоляцией</option>
+                </select>
+            </form>
+            <br>
 
-<main>
-  <div class="py-5 bg-light">
-    <div class="container">
-      <div class="form-group">
-        <label for="addWallet">add wallet:</label>
-        <input type="text" class="form-control" id="addWallet">
-    </div>
-    <br>
-         <p><mark>Покупка кофе</mark> <br>
-    Выберите день недели и вид кофе</p>
-    <form>
-      <select id="addDay">
-       <option value="0">Понедельник</option>
-       <option value="1">Вторник</option>
-       <option value="2">Среда</option>
-       <option value="3">Четверг</option>
-       <option value="4">Пятница</option>
-       <option value="5">Суббота</option>
-       <option value="6">Воскресенье</option>
-      </select>
-     </form> 
-     <br>
-  <form>
-    <select id="addCoffee">
-     <option value="0">Эспрессо</option>
-     <option value="1">Американо</option>
-     <option value="2">Каппучино</option>
-     <option value="3">Латте</option>
-     <option value="4">Раф</option>
-    </select>
-   </form> 
-<br>
-   <div id="debug" style="width: 50%; height: 50%; border:1px solid;">
-      <div class="form-group">
-        <label for="addDay">add day:</label>
-        <input type="text" class="form-control" id="selDay">
-    </div>
-    <div class="form-group">
-      <label for="addCoffee">add coffee:</label>
-      <input type="text" class="form-control" id="selCoffee">
-  </div>
-    <p>show day: </span> <span id="showDay"></p>
-    <p>show coffee: </span> <span id="showCoffee"></p>
-      <button class="show_values" onclick="show()">show values</button>
-      <br>
-  </div>
-<br>
-    <div class="form-group">
-      <button class="save" onclick="save()">save to blockchain</button>
-  </div>
-  <br>
-    <div class="form-group">
-        <label for="readWallet">Input wallet:</label>
-        <input type="text" class="form-control" id="readWallet">
-    </div>
-    <br>
-    <div class="form-group">
-        <button class="readUser" onclick="readUser()">read user data</button>
-    </div>
-    <br>
-    <div>
-      <button class="getalltable" onclick="getalltable()">show summary table</button>
-    </div>
-    <br>
-    <div id="showResult" >
-        <div>
-            <span>target day: </span> <span id="targetDay"></span>
+            <button class="reserve-button" onclick="save()">Забронировать</button>
         </div>
-        <div>
-            <span>target coffee: </span> <span id="targetCoffee"></span>
+
+        <!-- Для таблиц -->
+        <div class="admin-panel">
+            <div class="getting-data">
+                <label for="readWallet" class="debug-input-label">Введите адрес кошелька для получения данных:</label>
+                <br>(Или оставьте поле пустым для использования подключенного адреса)
+                <br>
+                <input type="text" class="inputread" id="readWallet">
+                <br>
+                <button class="readUser" onclick="readUser()">Просмотр данных пользователя</button>
+                <button class="getalltable" onclick="getalltable()">Просмотр общих данных</button>
+    
+                <div id="showResult">
+                    <div>
+                        <span style="font-family: Arial, Helvetica, sans-serif; font-size: 16px;">Последний выбранный день: </span> <span id="targetDay"></span>
+                    </div>
+                    <div>
+                        <span style="font-family: Arial, Helvetica, sans-serif; font-size: 16px;">Последнее выбранное помещение: </span> <span id="targetRoom"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <button class="clearusertable" onclick="clearusertable()">Очистить данные для пользователя</button>
+                  <br>
+                  <button class="clearalltable" onclick="clearalltable()">Очистить общие данные</button>
+                  <br>
+                  <button class="getbalance" onclick="getbalance()">Узнать баланс</button><br>
+                  <span style="font-family: Arial, Helvetica, sans-serif; font-size: 16px;">Баланс контракта (wei): </span> <span id="balance"></span>
+                  <br>
+                  <button class="withdraw" onclick="withdraw()">Вывод средств</button>
+                </div>
+                <br>
+                <div id="tablearr"></div>
+            </div>
         </div>
     </div>
-    <div class="form-group">
-      <button class="clearusertable" onclick="clearusertable()">clear user table</button>
-      <button class="clearalltable" onclick="clearalltable()">clear summary table</button>
-  </div>
-    <div id="tablearr">
+
+    <!-- Footer -->
+    <div class="footer">
+        <h4>Студенты СПБГУТ:<br>Дворецков Кирилл<br>Мартынюк Анастасия<br>Миронов Кирилл</h3>
     </div>
-</div>
-  
-
-
-</form> 
-</div></div>
-</main>
-        <footer class="text-muted py-5" style = "position:relative; text-align:right;">
-          <div class="container" >
-            
-              <a style = "padding-right: 174px;"> Студенты СПБГУТ:</a><br><ul style="float: right;">
-                <li >Дворецков Кирилл</li>
-                <li >Мартынюк Анастасия</li>
-                <li >Миронов Кирилл</li>
-                <li >Огорельцев Павел</li>
-            </ul>
-            <body id="body">
-            </body>
-          </div>
-        </footer>
-    </figure>
-    <script charset="utf-8"
-        src="https://cdn.ethers.io/scripts/ethers-v4.min.js"
-        type="text/javascript">
-</script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+        type="application/javascript"></script>
 <script src='./js/web3_script.js' type='text/javascript'></script>
-<script type="text/javascript">
-  $(document).ready(function() {
-      $('#debug_checkbox').click(function() {
-        $('#debug').toggle();
-      });
-  });
-</script>
-    </html>
+</body>
+</html>
