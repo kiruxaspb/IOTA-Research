@@ -25,7 +25,10 @@ wasp-cli peering list-trusted
 Chain setup:
 wasp-cli request-funds
 wasp-cli chain deploy --committee=0 --quorum=1 --chain=mychain --description="My chain"
+wasp-cli chain deposit IOTA:10000
 
 Setting EVM:
-asp-cli chain evm deploy -a mychain --alloc YOURWALLET_ADDR:1000000000000000000000000
+wasp-cli chain evm deploy -a mychain --alloc YOURWALLET_ADDR:1000000000000000000000000
+
+wasp-cli chain evm jsonrpc --chainid 1074
 
